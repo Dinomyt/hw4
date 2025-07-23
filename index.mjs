@@ -50,16 +50,63 @@ app.get("/software_engineering", async (req, res) => {
   res.locals.sections = [
     {
       title: "1. Software Development Life Cycle (SDLC)",
-      body: `<p>The SDLC consists of several phases to deliver quality software.</p>`,
+      body: `<p>The SDLC consists of:</p>
+
+          <ul>
+            <li>
+              <strong>Planning:</strong> Define scope, budget, and schedule.
+            </li>
+            <li>
+              <strong>Requirements:</strong> Gather functional and
+              non‐functional needs.
+            </li>
+            <li>
+              <strong>Design:</strong> High‐level and detailed design
+              specifications.
+            </li>
+            <li>
+              <strong>Implementation:</strong> Coding, code reviews, and version
+              control.
+            </li>
+            <li>
+              <strong>Testing:</strong> Unit, integration, system, and
+              acceptance tests.
+            </li>
+            <li>
+              <strong>Maintenance:</strong> Patches, updates, and continuous
+              improvement.
+            </li>
+          </ul>`,
       icon: getTopicIcon("software_engineering"),
     },
     {
       title: "2. Methodologies",
-      body: `<p>Common methodologies include Waterfall and Agile.</p>`,
+      body: `      <aside
+        style="
+          background: #dfe6e9;
+          padding: 1rem;
+          border-radius: 4px;
+          margin: 1rem 0;
+        "
+      >
+        <h3>Waterfall vs. Agile</h3>
+        <p>
+          Waterfall is linear and rigid; Agile is iterative and adaptive. Many
+          teams adopt a hybrid (e.g. “Wagile”) to combine planning with
+          flexibility.
+        </p>
+      </aside>`,
     },
     {
       title: "3. Quality Assurance & DevOps",
-      body: `<p>Automation, CI/CD, and IaC improve software delivery.</p>`,
+      body: `      <p>Modern pipelines include:</p>
+
+      <ul>
+        <li>Continuous Integration (CI) with automated builds.</li>
+        <li>Continuous Delivery (CD) for rapid, reliable deployments.</li>
+        <li>Infrastructure as Code (IaC) to manage provisioning.</li>
+      </ul>
+`,
     },
   ];
   res.locals.sources = [
@@ -84,16 +131,72 @@ app.get("/algorithms", async (req, res) => {
   res.locals.sections = [
     {
       title: "1. Classic Algorithms",
-      body: `<p>Sorting, searching, and graph algorithms are foundational.</p>`,
+      body: `<ul>
+            <li>
+              <strong>Sorting:</strong> Quick Sort (O(n log n)), Merge Sort,
+              Heap Sort
+            </li>
+            <li>
+              <strong>Searching:</strong> Binary Search (O(log n)),
+              Interpolation Search
+            </li>
+            <li>
+              <strong>Graph:</strong> Dijkstra’s, A* for shortest paths; DFS/BFS
+              for traversal
+            </li>
+          </ul>`,
       icon: getTopicIcon("algorithms"),
     },
     {
       title: "2. Hash Algorithms",
-      body: `<p>Hashes provide fixed-length representations for integrity checks.</p>`,
+      body: `<p>Cryptographic hashes map input data to fixed-size digests:</p>
+      <ul>
+        <li>
+          <strong>MD5:</strong> 128-bit, fast but broken for collision
+          resistance.
+        </li>
+        <li><strong>SHA-1:</strong> 160-bit, also deprecated for security.</li>
+        <li>
+          <strong>SHA-256:</strong> 256-bit, industry standard for integrity
+          checks.
+        </li>
+      </ul>
+
+      <figure
+        style="
+          background: #ecf0f1;
+          padding: 0.5rem;
+          border-radius: 4px;
+          overflow-x: auto;
+        "
+      >
+        <pre>
+// Javascript: simple rolling hash
+function hash(s) {
+    let h = 0;
+    for (let c of s) {
+        h = ((h &lt;&lt; 5) - h) + c.charCodeAt(0);
+        h |= 0;  // convert to 32-bit
+    }
+    return h &gt;&gt;&gt; 0;
+}
+            </pre
+        >
+        <figcaption
+          style="font-size: 0.9rem; color: #7f8c8d; text-align: center"
+        >
+          Fig.1 – Rolling hash example.
+        </figcaption>
+      </figure>`,
     },
     {
       title: "3. Performance Considerations",
-      body: `<p>Analyze time and space complexity to optimize algorithms.</p>`,
+      body: `      <p>
+        Always analyze <em>time complexity</em> and
+        <em>space complexity</em> (Big-O notation). Choose in-place vs.
+        out-of-place algorithms based on memory constraints.
+      </p>
+`,
     },
   ];
   res.locals.sources = [
@@ -118,16 +221,40 @@ app.get("/software_design", async (req, res) => {
   res.locals.sections = [
     {
       title: "1. SOLID Principles",
-      body: `<p>Design principles to make software more maintainable and scalable.</p>`,
+      body: `<ul>
+            <li><strong>S:</strong> Single Responsibility</li>
+            <li><strong>O:</strong> Open/Closed</li>
+            <li><strong>L:</strong> Liskov Substitution</li>
+            <li><strong>I:</strong> Interface Segregation</li>
+            <li><strong>D:</strong> Dependency Inversion</li>
+          </ul>`,
       icon: getTopicIcon("software_design"),
     },
     {
       title: "2. Common Design Patterns",
-      body: `<p>Reusable patterns to solve recurring problems in software design.</p>`,
+      body: ` <ul>
+        <li><strong>Creational:</strong> Singleton, Factory Method</li>
+        <li><strong>Structural:</strong> Adapter, Decorator, Facade</li>
+        <li><strong>Behavioral:</strong> Observer, Strategy, Command</li>
+      </ul>`,
     },
     {
       title: "3. UML Diagrams",
-      body: `<p>Visual representations of system structure and behavior.</p>`,
+      body: `<p>
+        Use class, sequence, and state diagrams to model and communicate
+        architecture.
+      </p>
+      <aside
+        style="
+          background: #dfe6e9;
+          padding: 1rem;
+          border-radius: 4px;
+          margin: 1rem 0;
+        "
+      >
+        <h3>Design Tip</h3>
+        <p>Favor composition over inheritance to reduce tight coupling.</p>
+      </aside>`,
     },
   ];
   res.locals.sources = [
@@ -149,16 +276,45 @@ app.get("/project_management", async (req, res) => {
   res.locals.sections = [
     {
       title: "1. Agile Framework",
-      body: `<p>Iterative delivery with stakeholder feedback and continuous improvement.</p>`,
+      body: `<p>Agile is all about iterative delivery:</p>
+          <ul>
+            <li>2- to 4-week sprints</li>
+            <li>Continuous feedback from stakeholders</li>
+            <li>Regular retrospectives for improvement</li>
+          </ul>`,
       icon: getTopicIcon("project_management"),
     },
     {
       title: "2. Key Ceremonies",
-      body: `<p>Planning, daily standups, reviews, and retrospectives.</p>`,
+      body: `<ul>
+        <li>
+          <strong>Sprint Planning:</strong> Define sprint goal and backlog
+          items.
+        </li>
+        <li>
+          <strong>Daily Stand-up:</strong> Quick sync: What I did, will do,
+          blockers.
+        </li>
+        <li>
+          <strong>Sprint Review:</strong> Demo completed work to stakeholders.
+        </li>
+        <li>
+          <strong>Retrospective:</strong> Reflect on what went well and what to
+          improve.
+        </li>
+      </ul>`,
     },
     {
       title: "3. Roles & Artifacts",
-      body: `<p>Product Owner, Scrum Master, and the team maintain the backlog and track progress.</p>`,
+      body: `<p>
+        <strong>Product Owner:</strong> Prioritizes backlog
+        <strong>Scrum Master:</strong> Facilitates process
+        <strong>Team:</strong> Delivers the work
+      </p>
+      <p>
+        Artifacts include the Product Backlog, Sprint Backlog, and Burndown
+        Charts.
+      </p>`,
     },
   ];
   res.locals.sources = [
