@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.ejs') %>
+  </head>
+
+  <body>
+    <%- include('partials/nav.ejs') %>
+
+    <section style="padding: 1rem">
+      <% sections.forEach(section => { %>
+      <div class="row" style="margin-bottom: 1rem">
+        <div>
+          <h2><%= section.title %></h2>
+          <%- section.body %>
+        </div>
+        <% if (section.icon) { %>
+        <div style="width: 100px; height: 100px"><%- section.icon %></div>
+        <% } %>
+      </div>
+      <% }) %>
+
+      <h2>Sources</h2>
+      <ul>
+        <% sources.forEach(source => { %>
+        <li>
+          <a href="<%= source.url %>" target="_blank"> <%= source.text %> </a>
+        </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

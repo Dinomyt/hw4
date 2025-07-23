@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('partials/head.ejs') %>
+
+</head>
+<body>
+    <%- include('partials/nav.ejs') %>
+
+    <section class="grid">
+      <h2 id="topics-heading" class="visually-hidden">Course Topics</h2>
+      <article class="card">
+        <h2>Software Engineering</h2>
+        <p>
+          Principles, processes, and best practices for building robust
+          software.
+        </p>
+        <p><a href="/software_engineering">Learn more →</a></p>
+      </article>
+      <article class="card">
+        <h2>Algorithms</h2>
+        <p>
+          Key algorithms, including sorting, searching, and cryptographic hash
+          functions.
+        </p>
+        <p><a href="/algorithms">Learn more →</a></p>
+      </article>
+      <article class="card">
+        <h2>Software Design</h2>
+        <p>
+          Architectural patterns, UML, and design principles for maintainable
+          code.
+        </p>
+        <p><a href="/software_design">Learn more →</a></p>
+      </article>
+      <article class="card">
+        <h2>Project Management</h2>
+        <p>
+          Agile methodologies, sprint planning, and team collaboration
+          techniques.
+        </p>
+        <p><a href="/project_management.html">Learn more →</a></p>
+      </article>
+    </section>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
