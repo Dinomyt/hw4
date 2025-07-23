@@ -42,11 +42,15 @@ function getTopicIcon(name) {
 
 app.get("/", async (req, res) => {
   res.locals.quote = await fetchQuote();
+  res.locals.currentPage = "home";
+
   res.render("index");
 });
 
 app.get("/software_engineering", async (req, res) => {
   res.locals.quote = await fetchQuote();
+  res.locals.currentPage = "software_engineering";
+
   res.locals.sections = [
     {
       title: "1. Software Development Life Cycle (SDLC)",
@@ -128,6 +132,8 @@ app.get("/software_engineering", async (req, res) => {
 
 app.get("/algorithms", async (req, res) => {
   res.locals.quote = await fetchQuote();
+  res.locals.currentPage = "algorithms";
+
   res.locals.sections = [
     {
       title: "1. Classic Algorithms",
@@ -218,6 +224,8 @@ function hash(s) {
 
 app.get("/software_design", async (req, res) => {
   res.locals.quote = await fetchQuote();
+  res.locals.currentPage = "software_design";
+
   res.locals.sections = [
     {
       title: "1. SOLID Principles",
@@ -273,6 +281,8 @@ app.get("/software_design", async (req, res) => {
 
 app.get("/project_management", async (req, res) => {
   res.locals.quote = await fetchQuote();
+  res.locals.currentPage = "project_management";
+
   res.locals.sections = [
     {
       title: "1. Agile Framework",
